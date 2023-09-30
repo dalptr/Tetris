@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+}
+
+:root {
+    --tetris-columns: 10;
+    --tetris-rows: 20;
+    --tetris-block-size: 20px;
+    --game-board-width: calc(var(--tetris-columns) * var(--tetris-block-size));
+}
+
+.container {
+    outline: 1px solid red;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0 15px 15px 15px;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.button-color {
+    background-color: #353535;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--tetris-columns), var(--tetris-block-size));
+    grid-template-rows: repeat(var(--tetris-rows), var(--tetris-block-size));
+    width: var(--game-board-width);
+    height: calc(var(--tetris-rows) * var(--tetris-block-size));
+    background-color: #353535;
+}
+
+#game-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 15px;
+}
+
+#game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px black solid;
+}
+
+#score, #high-score, #level, #lines {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #7D7D7D;
+}
+
+.game-info-row > p {
+    color: #7D7D7D;
+    font-weight: 500;
+}
+
+.game-info-value {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    background-color: #303030;
+    color: white;
+}
+
+#next-piece {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, var(--tetris-block-size));
+    grid-template-rows: repeat(4, var(--tetris-block-size));
+    background-color: #303030;
+    border: 1px solid #000;
+}
+
+.round-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #353535;
+    border: 1px solid #000;
+    color: #7D7D7D;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+#navigation {
+    display: flex;
+}
+
+#navigation-directions {
+    height: 250px;
+    position: relative;
+    width: 60%;
+    float: left;
+}
+
+#change-piece-button-container {
+    width: 40%;
+    float: right;
+    outline: 1px orange solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#change-piece {
+    height: 100px;
+    width: 100px;
+}
+
+#navigation-directions > #left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#navigation-directions > #right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#navigation-directions > #down {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+}
+
+#navigation-directions > #up {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+}
